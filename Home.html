@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Styles/Nav.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body class="HomeBody" ng-app="myApp" ng-controller="customersCtrl">
+    <div class="cred cred1 animate-opacity">
+        <button id="android" onclick="opBtnClick('Android')" class="opButton">&#xf17b; Android</button>
+        <button id="ios" onclick="opBtnClick('iOS')" class="opButton">&#xf179; iOS</button>
+    </div>
+
+    <div class="cred cred3 animate-opacity">
+        <p>Welcome, please feel free to explore!</p>
+    </div>
+
+    <div class="cred cred4 animate-opacity">
+        <p><b>Manga Baipalli</b> | +1 (234) 716-4429 | manga.baipalli@gmail.com | <a href="https://www.bmsrinivasrao.com" target="_blank" style="color:#FB8C00;">www.bmsrinivasrao.com</a></p>
+    </div>
+
+    <div class="header" id="header">
+        <div style="cursor:pointer;" class="rx_icon" id="rx_icon"></div>
+        <div id="topBar">
+            <p style="padding-top:2px; font-size:18px" id="topBarText"><i class='fa fa-medkit' aria-hidden='true'></i> My Health Plan</p>
+        </div>
+    </div>
+    <div class="container">
+        <div id="home">
+            <div class="content" style="background: #F5F5F5;">
+                <center>
+                    <img class="profileImg" src="Images/profileImg.jpg" alt="Profile">
+                    <h2 style="font-weight:100;" ng-bind="names[0].Name"></h2>
+                    <p style="margin-top:-10px;">{{names[0].DOB}} | <i class="fa fa-map-marker" aria-hidden="true"></i> {{names[0].Address}}</p>
+                    <p style="margin-top:-10px;">{{names[0].ID}}</p>
+                </center>
+            </div>
+            <div class="content contentP" style="margin-top:-10px;">
+                <h4><i class="fa fa-bar-chart" aria-hidden="true"></i> Account Balance <i class="fa fa-angle-right" aria-hidden="true" style="float:right; cursor:pointer;" onclick="accountBalance('home')"></i></h4>
+                <p><strong>Date:</strong> 01-10-2016 to Present</p>
+                <p><strong>Total Amount Billed:</strong> {{names[0].TotalBalance}}</p>
+                <p><strong>Your Responsibility:</strong> {{names[0].TotalRes}}</p>
+            </div>
+            <div class="content contentP" style="margin-top:-10px;">
+                <h4><i class="fa fa-calendar" aria-hidden="true"></i> Claims <i class="fa fa-angle-right" aria-hidden="true" style="float:right; cursor:pointer;" onclick="claims('home')"></i></h4>
+                <p><strong>Total:</strong> {{names.length}}</p>
+            </div>
+        </div>
+        <div id="pSearch" style="display:none;">
+            <div class="content contentP">
+                <h4 style="margin-bottom:30px;">Type of Provider </h4>
+                <div>
+                    <div class="cntr">
+                        <div class="row press" style="float:left;">
+                            <input type="checkbox" id="unchecked" class="cbx hidden inline" />
+                            <label for="unchecked" class="lbl"><p style="padding-left:50px;">Physician</p></label>
+                        </div>
+                        <div class="row press" style="float:left; padding-left:150px;">
+                            <input type="checkbox" id="checked" class="cbx hidden" />
+                            <label for="checked" class="lbl"><p style="padding-left:50px;">Facility</p></label>
+                        </div>
+                    </div>
+                </div>
+                <h4 style="margin-top:80px;">Location</h4>
+                <input placeholder="Hint: 1632 E Main Street, Kent, Ohio 44240" type="text" required="">
+                <h4 style="margin-top:30px;">Search range (in miles)</h4>
+                <div>
+                    <label style="cursor:pointer;" onclick="setRange('.05')" class="rangeLab 05">05</label>
+                    <label style="cursor:pointer;" onclick="setRange('.10')" class="rangeLab 10">10</label>
+                    <label style="cursor:pointer;" onclick="setRange('.15')" class="rangeLab 15">15</label>
+                    <label style="cursor:pointer;" onclick="setRange('.20')" class="rangeLab 20">20</label>
+                    <label style="cursor:pointer;" onclick="setRange('.50')" class="rangeLab 50">50</label>
+                </div>
+                <h4 style="margin-top:30px;">Speciality (Optional)</h4>
+                <input placeholder="Hint: General Practitioner" type="text" required="">
+                <h4 style="margin-top:30px;">Provider Name (Optional)</h4>
+                <input placeholder="Hint: Jane Doe" type="text" required="">
+                <center>
+                    <div class="btn">Search</div>
+                </center>
+            </div>
+        </div>
+        <div id="Claims" style="display:none;">
+            <div class="content" style="background:none !important; box-shadow:none;">
+                <input style="margin: 0px 0px -15px -8px; width:100%;" placeholder="SEARCH" type="text" required="">
+            </div>
+            <div ng-repeat="x in names">
+                <div class="content contentP {{x.Class}}">
+                    <div style="float:left; padding-right:20px; border-right:1px solid #CFD8DC;">
+                        <h5 style="color:#fff;">n</h5>
+                        <p><i class=" {{ x.Status }} " aria-hidden="true" style="font-size:18px; color:{{x.StatusColor}};"></i></p>
+                        <p style="color:#fff;">n</p>
+                    </div>
+                    <div style="float:left; padding-left:10px;">
+                        <h5>{{ x.Name }}</h5>
+                        <p>Amount Billed:</p>
+                        <p>Your Responsibility:</p>
+                    </div>
+                    <div style="float:right; margin-right:50px;">
+                        <h5>{{ x.Date }}</h5>
+                        <p>{{ x.Amount }}</p>
+                        <p>{{ x.Resposibility }}</p>
+                    </div>
+                    <div style="float:right; margin-right:-120px;">
+                        <h5 style="color:#fff;">1</h5>
+                        <p><i class="fa fa-angle-right" aria-hidden="true"></i></p>
+                        <p style="color:#fff;">1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Account" style="display:none;">
+            <div class="content contentP claimCard3">
+                <div style="float:left; padding-left:10px;">
+                    <h5 style="font-size:17px">BALANCE:</h5>
+                    <h5 style="font-size:17px; font-weight:100;">Total Amount Billed:</h5>
+                    <p style="font-size:16px">Your Resposibility:</p>
+                </div>
+                <div style="float:right; margin-right:50px;">
+                    <h5 style="font-size:17px">{{names[0].TotalRes}}</h5>
+                    <h5 style="font-size:17px; font-weight:100;">{{names[0].TotalBalance}}</h5>
+                    <p style="font-size:16px">{{names[0].TotalRes}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="drawer" id="drawer">
+        <div class="content">
+            <div class="header">
+                <div class="avatar"><img src="Images/MedMutualLogo.png" width="230" height="90"></div>
+                <div class="text">
+                </div>
+            </div>
+            <ul class="menu">
+                <li class="item subheader" id="logoutID" style="margin-top:-10px;">Primary</li>
+                <li style="cursor:pointer;" class="item home" onclick="home()">Home</li>
+                <li style="cursor:pointer;" class="item search" onclick="providerSearch()">Provider Search</li>
+                <li style="cursor:pointer;" class="item claims" onclick="claims()">Claims</li>
+                <li style="cursor:pointer;" class="item balance" onclick="accountBalance()">Account Balance</li>
+                <li style="cursor:pointer;" class="item care" onclick="myCare()">My Care Compare</li>
+                <li style="cursor:pointer;" class="item idcard" onclick="idCard()">ID Card</li>
+                <li class="item subheader" id="logoutID">Account</li>
+                <li style="cursor:pointer;" class="item settings">Settings</li>
+                <li style="cursor:pointer;" class="item logout" onclick="logoutFunction()">Logout</li>
+            </ul>
+        </div>
+    </div>
+    <div id="iOSMenu" style="display:none;">
+        <ul>
+            <li style="cursor:pointer;" class="item home" onclick="home1()">&#xf015;</li>
+            <li style="cursor:pointer;" class="item search" onclick="providerSearch1()">&#xf002;</li>
+            <li style="cursor:pointer;" class="item claims" onclick="claims1()">&#xf073;</li>
+            <li style="cursor:pointer;" class="item balance" onclick="accountBalance1()">&#xf080;</li>
+            <li style="cursor:pointer;" class="item care" onclick="myCare1()">&#xf0ec;</li>
+            <li style="cursor:pointer;" class="item idcard" onclick="idCard1()">&#xf2c3;</li>
+        </ul>
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('customersCtrl', function($scope, $http) {
+            $http.get('Data/records.json')
+                .then(function(response) {
+                    $scope.names = response.data.records;
+                });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="JavaScript/Nav.js"></script>
+    <script async src="JavaScript/scripts.js"></script>
+</body>
+
+</html>

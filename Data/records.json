@@ -1,0 +1,68 @@
+{
+    "records": [{
+            "ID": "#1232ACS998",
+            "Name": "Will Kirby",
+            "Date": "26-02-2017",
+            "Amount": "$250.00",
+            "Resposibility": "$80.00",
+            "DOB": "10-01-1985",
+            "Address": "Cleveland, Ohio",
+            "Class": "claimCard3",
+            "Status": "fa fa-check-square-o",
+            "StatusColor": "#51A335",
+            "TotalBalance": "$2200",
+            "TotalRes": "$800"
+    }, {
+            "Name": "Mikhail Varshavski",
+            "Date": "11-10-2017",
+            "Amount": "$350.00",
+            "Resposibility": "$90.00",
+            "Class": "claimCard1",
+            "Status": "fa fa-exclamation-triangle",
+            "StatusColor": "#FDA71A",
+            "TotalBalance": "$2200",
+            "TotalRes": "$800"
+    }, {
+            "Name": "Carl Jung",
+            "Date": "10-10-2017",
+            "Amount": "$300.00",
+            "Resposibility": "$100.00",
+            "Class": "claimCard3",
+            "Status": "fa fa-check-square-o",
+            "StatusColor": "#51A335",
+            "TotalBalance": "$2200",
+            "TotalRes": "$800"
+    }, {
+            "Name": "Larry Brilliant",
+            "Date": "12-10-2016",
+            "Amount": "$1500.00",
+            "Resposibility": "$550.00",
+            "Class": "claimCard2",
+            "Status": "fa fa-window-close-o",
+            "StatusColor": "#EE5348",
+            "TotalBalance": "$2200",
+            "TotalRes": "$800"
+    },
+        {
+            "Name": "Mark Hyman",
+            "Date": "09-15-2016",
+            "Amount": "$110.00",
+            "Resposibility": "$40.00",
+            "Class": "claimCard3",
+            "Status": "fa fa-check-square-o",
+            "StatusColor": "#51A335",
+            "TotalBalance": "$2200",
+            "TotalRes": "$800"
+    },
+        {
+            "Name": "Kayl Benjamin",
+            "Date": "19-15-2016",
+            "Amount": "$120.00",
+            "Resposibility": "$60.00",
+            "Class": "claimCard3",
+            "Status": "fa fa-check-square-o",
+            "StatusColor": "#51A335",
+            "TotalBalance": "$2200",
+            "TotalRes": "$800"
+    }]
+}

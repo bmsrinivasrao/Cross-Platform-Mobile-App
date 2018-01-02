@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Styles/style.css" rel="stylesheet">
+    <link href="Styles/mediaQueries.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="cred">
+        <div class="cred cred2 animate-left">
+            <p>
+                Hello!<br><br> Thank you so much for taking time to looking at this demo.
+            </p>
+            <p>
+                Please enter the following credentials to login!
+            </p>
+        </div>
+        <div class="cred bounce">
+            <center>
+                <p class="credH">CREDENTIALS</p>
+            </center>
+            <p>Username: Demo</p>
+            <p>Password: Demo</p>
+        </div>
+    </div>
+    <div class="row" id="alertDiv">
+        <div class="col-12 alertLabel">
+            <label id="alert"></label>
+        </div>
+        <div class="alertLabelOk">
+            <label style="cursor:pointer;" id="alterOk" onclick="alterOkFun()">Ok</label>
+        </div>
+    </div>
+    <div class="MainContainer">
+        <div class="header">
+            <center>
+                <img src="Images/MedMutualLogo.png">
+            </center>
+        </div>
+        <div class="loginPanel">
+            <div class="row">
+                <div class="col-12">
+                    <input id="userID" class="textInput" type="text" placeholder="&#xf007; Username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <input id="passID" class="textInput" type="password" placeholder="&#xf023; Password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 item" style="color:#fff; font-size:15px;">
+                    <input type="checkbox" id="unchecked" class="cbx hidden inline" />
+                    <label for="unchecked" class="lbl remWidth"><p style="padding-left:35px;">Remeber me</p></label>
+                </div>
+            </div>
+            <div class="row logOn">
+                <div class="col-12">
+                    <button style="cursor:pointer;" id="logInBtnID" onclick="logInFun()">Log In</button>
+                </div>
+            </div>
+            <div class="row logOn">
+                <div class="col-12 text">
+                    <p>Forgot username or password?</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom center">
+            <p>Register | More Information | Contact</p>
+            <p class="fontAwsm" style="margin-top:20px;"></p>
+        </div>
+    </div>
+    <script async src="JavaScript/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
